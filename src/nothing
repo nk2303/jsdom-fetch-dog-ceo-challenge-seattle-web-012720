@@ -1,0 +1,15 @@
+const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
+document.addEventListener('DOMContentLoaded', () => {
+    fetch(imgUrl)
+    .then(res => res.json())
+    .then(response => {
+        var imgList = response.message;
+        console.log(imgList);
+        imgList.map(imgUrl => {
+            const img = document.createElement('img');
+            img.setAttribute('src', imgUrl);
+            document.querySelector('#dog-image-container').appendChild(img);
+            console.log('append img', img);
+        })
+    });
+});
